@@ -20,6 +20,24 @@ export default class App extends React.Component {
 const TabNavigator = createBottomTabNavigator({
   ReadStoryScreen: {screen: ReadStoryScreen},
   WriteStoryScreen: {screen: WriteStoryScreen},
+},
+{
+   defaultNavigatorOptions : ({navigations})=>({
+     tabBarIcon:({})=>{
+       const routeName = navigation.state.routeName
+       if (routeName === 'WriteStoryScreen'){
+         return(
+           <Image></Image>
+         )
+       }
+     
+     else if (routeName === 'ReadStoryScreen'){
+       return(
+         <Image></Image>
+       )
+     }
+    }
+   })
 });
 
 const AppContainer = createAppContainer(TabNavigator);
